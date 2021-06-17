@@ -1,0 +1,16 @@
+<apex:page id="pg">
+<apex:form id="fm">
+<apex:pageBlock id="pb">
+<apex:pageBlockSection id="ps">
+<apex:inputText id="in" onchange="mydemo();"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+<script>
+function mydemo()
+{
+var in = document.getElementById("pg:fm:pb:ps:in");
+alert('Input test is ' + in);
+}
+</script>
+</apex:form>
+</apex:page>

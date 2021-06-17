@@ -1,0 +1,4 @@
+<apex:page >
+<c:SiteLogin >
+</c:SiteLogin>
+</apex:page>

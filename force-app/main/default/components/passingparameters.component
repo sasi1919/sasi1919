@@ -1,0 +1,39 @@
+<apex:component controller="VisualForceComponentController">
+ 
+  <!-- Receive string variable input here -->
+  <apex:attribute name="InputString" description="Received varaible of data type string"  assignTo="{!Received_String}" type="String" required="true"/>
+ 
+  <!-- Receive List of strings here -->
+  <apex:attribute name="inputList_string" description="Received list of strings" type="string[]" assignTo="{!Received_List_string}" required="false"/>
+ 
+  <!-- Receive List of sObject Records here -->
+  <apex:attribute name="InputList_sObje" description="Received list of sObject records" type="sObject[]" assignTo="{!Received_List_sObject}" required="false"/>
+  <!-- Print your received string here -->
+ <b> Received Input string is  : </b><apex:outputtext value="{!Received_String}"/>
+
+ <br/>
+ <br/>
+ <apex:pageblock > 
+      <!-- Print your List of strings here -->
+      <apex:pageblocktable value="{!Received_List_string}" var="str" >
+        <apex:column >
+          <apex:outputtext value="{!str}"/>
+        </apex:column>
+      </apex:pageblocktable>
+  <br/>
+ <br/>      
+
+       <!-- Print your List of sObject Records here -->
+      <apex:pageblocktable value="{!AccList}" var="sObjRec">
+           <apex:repeat value="{!FieldList}" var="fl">
+              <apex:column value="{!sObjRec[fl]}"/>
+           </apex:repeat>
+      </apex:pageblocktable>
+ </apex:pageblock>
+ 
+ <apex:pageblock >
+   <apex:commandButton value="Call Controller method" action="{!Access_paramtrs_In_Controlr}"/>
+ </apex:pageblock>
+    
+
+</apex:component>

@@ -1,0 +1,18 @@
+<apex:page tabStyle="Team_Task__c" controller="practice2"  >
+<apex:pageBlock >
+<style>
+p{
+    text-shadow: 3px 1px red;font-size: 20px;text-align: center;
+}
+</style>
+<P><b> Task Details</b></P>
+<apex:pageblockTable value="{!teamdetails}" var="a">
+<apex:column value="{!a.name}">
+</apex:column>
+<apex:column value="{!a.Team_Member__c}"/>
+<apex:column value="{!a.Priority__c}"/>
+<apex:column value="{!a.Member_email__c}"/>
+</apex:pageblockTable>
+
+</apex:pageBlock>
+</apex:page>

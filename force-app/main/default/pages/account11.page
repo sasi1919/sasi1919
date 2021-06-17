@@ -1,0 +1,35 @@
+<apex:page standardController="Contact" recordSetVar="acc">
+<apex:form >
+<apex:pageBlock title="Contacts Tabel" id="list">
+<apex:selectList value="{! filterId }" size="1"  >
+    <apex:selectOptions value="{! listViewOptions }"/>
+     <apex:actionSupport event="onchange" reRender="list"/>
+</apex:selectList> 
+Records Per page: 
+<apex:selectList value="{! PageSize }" size="1">
+    <apex:selectOption itemValue="5" itemLabel="5"/>
+    <apex:selectOption itemValue="20" itemLabel="20"/>
+    <apex:actionSupport event="onchange" reRender="list"/>
+</apex:selectList>  
+<apex:pageblockTable value="{!acc}" var="a">
+<apex:column value="{!a.name}"/>
+<apex:column value="{!a.Mailingcity}"/>
+<apex:column value="{!a.Mailingstate}"/>
+<apex:column value="{!a.MailingPostalcode}"/>
+<apex:column value="{!a.Phone}"/>
+</apex:pageblockTable>
+<apex:commandLink action="{! Previous }" value="« Previous"
+     rendered="{! HasPrevious }" reRender="list"/>
+<!-- inactive (no earlier pages) -->
+<apex:outputText style="color: #ccc;" value="« Previous"
+     rendered="{! NOT(HasPrevious) }"/>
+
+<apex:commandLink action="{! Next }" value="Next »"
+     rendered="{! HasNext }" reRender="list"/>
+<!-- inactive (no more pages) -->
+<apex:outputText style="color: #ccc;" value="Next »"
+     rendered="{! NOT(HasNext) }"/>
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>

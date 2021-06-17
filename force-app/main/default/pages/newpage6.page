@@ -1,0 +1,21 @@
+<apex:page standardController="Team_Member__c">
+<p> Welcome {!$User.FirstName}</p><br/>
+  <apex:form >
+    <apex:pageBlock title="New Team">
+        <apex:pageBlockSection Title="Team Member" columns="1">
+        <apex:inputField Value="{!Team_Member__c.Name}" label="Name"/> 
+        <apex:inputField Value="{!Team_Member__c.Team_lead__c}" label="Team lead"/>
+        <apex:inputField Value="{!Team_Member__c.Email_Id__c}" label="Email ID"/>
+        <apex:inputField Value="{!Team_Member__c.Team_Name__c}" label="Team name"/>
+        
+         </apex:pageBlockSection>
+         <apex:pageblockSection columns="2">
+        <apex:inputField value="{!Team_Member__c.State__c}" label="State"/>
+        <apex:inputField value="{!Team_Member__c.Town__c}" label="Town"/>     
+         </apex:pageblockSection>
+        <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

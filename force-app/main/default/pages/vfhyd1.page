@@ -1,0 +1,24 @@
+<apex:page standardController="Account" extensions="vfhyd1"  id="pgm">
+
+   <head>
+   
+      <script>
+         function sayHello()
+         {
+            var sasi= document.getElementById("{!$Component.pg.pg1.fm.sasi}").value;
+            alert ("Hello there! " + sasi);
+         }
+      </script>
+      
+   </head>
+   <apex:pageblock id="pg">
+      <apex:pageblockSection id="pg1" >   
+      <apex:form id="fm">
+     
+         <apex:inputtext id="sasi"/>
+         <apex:inputcheckbox id="btnsearch" onclick="sayHello();" />
+      </apex:form>
+      </apex:pageblockSection>
+      </apex:pageblock>
+ 
+</apex:page>

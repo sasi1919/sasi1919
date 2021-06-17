@@ -1,0 +1,24 @@
+<aura:component controller = "Cartype" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name ="newlable" type ="Boolean" default ="true"/>
+    <aura:attribute name = "Cartypes" type = "Car_Type__c[]" />  
+    <aura:handler name = "init" value = "{!this}" action = "{!c.doinit}" />
+    <lightning:layout horizontalAlign="Center">    
+        <lightning:layoutItem padding="around-medium">
+            <lightning:select name="Select Item" aura:id="Cartype" label="All Type" variant="label-hidden" onchange="{!c.auraidselection}">
+ 				<option value="" text="All Types"/>
+                <aura:iteration items="{!v.Cartypes}" var="item">
+        			<option value="{!item.id}" text="{!item.Name}"/>
+    			</aura:iteration>
+            </lightning:select> 
+        </lightning:layoutItem> 
+    </lightning:layout>    
+    <lightning:layout horizontalAlign="Center">
+        <lightning:layoutItem padding="around-medium">
+            <lightning:button variant="brand" label="Search" onclick="{!c.searchbutton}" />
+            <aura:if isTrue = "{!v.newlable}">
+                <lightning:button variant="Neutral" label="New" onclick="{!c.newbutton}" /> 
+            </aura:if>            
+        </lightning:layoutItem>
+        
+    </lightning:layout> 
+</aura:component>

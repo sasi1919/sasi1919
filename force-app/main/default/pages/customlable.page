@@ -1,0 +1,9 @@
+<apex:page >
+   <apex:form >
+     <apex:pageblock >
+       Value stored in custom label is: {!$Label.testdemo}
+       <apex:image url="{!$Resource.testdemo}"/>
+     </apex:pageblock>
+   </apex:form>
+
+</apex:page>

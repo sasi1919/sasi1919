@@ -1,0 +1,22 @@
+<apex:page id="pg">
+    <apex:form id="fm">
+        <apex:inputText id="input" onchange="sasi()"/>
+        <script>
+         function sasi() 
+         {
+         var myname = document.getElementById('{!$Component.input}').value;
+             //var myage = document.getElementById('{!$Component.pb.input1}').value;   
+         alert(myname'=========='+myage);
+         }
+         function sasi1() 
+         {
+         var myname = document.getElementById('pg:fm:input').value;
+         var myage = document.getElementById('pg:fm:pb:input1').value;   
+         alert(myname'=========='+myage);
+         }        
+        </script>
+        <apex:pageBlock id="pb">
+            <apex:inputText id="input1" onchange="sasi1()"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

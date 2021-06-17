@@ -1,0 +1,14 @@
+<apex:page controller="NewAndExistingController" tabstyle="Account">
+<apex:form >
+    <apex:pageBlock mode="edit">
+    <apex:pageMessages />
+        <apex:pageBlockSection columns="1" >
+        <apex:inputField value="{!teamtask.name}"/>
+        <apex:inputField value="{!teamtask.Team_Member__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

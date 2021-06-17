@@ -1,0 +1,16 @@
+<apex:page standardController="Account" extensions="extns">
+   <apex:form >
+     <apex:pageBlock title="Hello {!$User.FirstName}!">
+     <apex:pageblockSection title="Account Details" columns="1">
+     {!hello}
+          You are viewing the {!account.name} account. <p/>
+          Change Account Name: <p/>
+          <apex:inputField value="{!account.name}" 
+                  label="Account name"/>
+          <apex:inputField value="{!account.Type}" label="Type"/>
+          <apex:inputField value="{!account.Parentid}" label="Parent account"/>
+          <apex:commandButton action="{!save}"  value="Save New Account Name"/>
+     </apex:pageblockSection>
+     </apex:pageBlock>
+   </apex:form>
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page standardController="Account" id="pg">
+<apex:form id="fm">
+    <apex:inputField value="{!account.Name}" id="id1" onchange="changeCase();"/>
+</apex:form>
+<script>
+    function changeCase(){
+        var x = document.getElementById('pg:fm:id1');
+        alert( x.value.toUpperCase())
+    }
+</script> 
+</apex:page>

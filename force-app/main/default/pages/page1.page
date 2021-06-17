@@ -1,0 +1,7 @@
+<apex:page >
+<apex:pageBlock >
+<apex:pageblockSection title="newpage">
+
+</apex:pageblockSection>
+</apex:pageBlock>
+</apex:page>

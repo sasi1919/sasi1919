@@ -1,0 +1,26 @@
+<apex:page tabStyle="Team_Task__c" sidebar="false" controller="practice1">
+<apex:form >
+<apex:pagemessages />
+<apex:pageblock >
+<apex:pageblockSection title="Task creation" columns="1">
+<apex:inputField value="{!task.Name}" required="true"/>
+<apex:inputField value="{!task.Team_Member__c}" required="true"/>
+<apex:inputField value="{!task.Amount__c}"/>
+<apex:inputField value="{!task.Quantity__c}"/>
+<apex:outputPanel >
+<div align=" ">
+<apex:commandButton action="{!save}" value="Save"/>
+</div>
+</apex:outputPanel>
+</apex:pageblockSection>
+
+
+<apex:pageblockSection title="teamdetails" columns="1">
+<apex:outputtext value="{!task.Name}" label="Task Name"/>
+<apex:outputtext value="{!task.Team_Member__c}" label="Team Member"/>
+<apex:outputtext value="{!task.Amount__c}" label="Priority"/>
+<apex:outputtext value="{!task.Quantity__c}" label="Email"/>
+</apex:pageblockSection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

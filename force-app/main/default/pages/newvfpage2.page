@@ -1,0 +1,19 @@
+<apex:page controller="a1" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Search Accounts">
+            <apex:pageblockSection >
+              <apex:inputText value="{!keyword}" />
+              <apex:commandButton action="{!acclist}" title="Search" value="Search" reRender="accounttable"/>
+            </apex:pageblockSection>
+            <apex:pageblockSection id="accounttable">
+                <apex:pageBlockTable value="{!acc}" var="a" title="Account list" >
+                    <apex:column value="{!a.name}" title="Name"/>
+                    <apex:column value="{!a.Phone}" title="Phone"/>
+                    <apex:column value="{!a.Type}" title="Type"/>
+                </apex:pageBlockTable>
+            Record count : {!recordcount} <br/>
+            <font color="red"><b>{!errormessage}</b></font>                
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page sidebar="false" showHeader="false" >
+//header template
+<div id="Layer1" style="position:absolute;
+visibility:visible;
+width:1300px;
+height:120px;
+                               background-color:#FFFFCC;
+         layer-backgroundcolor:#FFFFCC;
+         border:1px none #000000;
+         z-index:1">
+<div style="margin-top:-50px;font-size:28px;"> <span style="color:red;margin-left:400px;">This is my header template</span></div>
+</div>
+<apex:insert name="header"/>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page controller="SOSLController">
+  <apex:form >
+  <apex:pageMessages />
+  <apex:pageBlock title="Search" >
+  <apex:panelGrid columns="2" width="50%" cellpadding="5" cellspacing="5" >
+  <apex:outputtext value="Enter the Value" styleClass="textual"/>
+  <apex:inputText value="{!searchStr}"/>
+  </apex:panelGrid> 
+  <br/>
+  <div align="center" draggable="false" >
+  <apex:commandButton value="Save" action="{!search_method}" style="center-align"/>
+  </div>
+  </apex:pageBlock>
+  </apex:form>
+  </apex:page>

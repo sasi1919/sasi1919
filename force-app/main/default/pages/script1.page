@@ -1,0 +1,12 @@
+<apex:page id="pg">
+    <apex:form id="fc">
+        <apex:inputText title="Input" id="value" onchange="sasi()"/>
+        <script>
+         function sasi() 
+         {
+         var myname = document.getelementbyId('{!$Component.value}').value;
+         window.alert(myname);
+         }
+        </script>
+    </apex:form>
+</apex:page>

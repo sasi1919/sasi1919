@@ -1,0 +1,22 @@
+<apex:page controller="c1" >
+<apex:form >
+  <apex:pageBlock title="Details">
+      <apex:pageblockSection >
+        <apex:pageBlockTable value="{!acts}" var="a">
+        <apex:column value="{!a.Name}"/>
+       
+          <!-- <apex:commandLink value="{!a.Name}" >
+              <apex:param id="Sasi" value="{!act}"/>
+           </apex:commandLink>-->
+        <apex:column value="{!a.Type}"/>
+        <apex:column headerValue="Action" />
+        <apex:inlineEditSupport event="ondblClick"/>
+
+        </apex:pageBlockTable>
+      </apex:pageBlockSection>
+              <apex:pageBlockButtons >
+        <apex:commandLink Value="Save" action="{!acts}"/>
+        </apex:pageBlockButtons>  
+  </apex:pageBlock>
+</apex:form>  
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page controller="addnum" >
+    <apex:form >
+    <apex:pageBlock title="Addition of two numbers">
+    <apex:pageBlockSection columns="1">
+    <apex:inputtext value="{!a}" label="Enter the 1st num"/>
+    <apex:inputtext value="{!b}" label="Enter the 2nd num"/>
+    <apex:outputtext value="{!c}" label="Output"/>
+    {!message}
+    </apex:pageBlockSection>
+    <apex:pageblockButtons >
+    <apex:commandButton action="{!add}" value="Add"/>
+    </apex:pageblockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

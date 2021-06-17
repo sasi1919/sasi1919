@@ -1,0 +1,12 @@
+<apex:page action="{!prepopulateValues}" extensions="newOpportunityOverride" standardController="Opportunity">
+<!--
+    Created by: Greg Hacic
+    Last Update: 9 February 2016 by Greg Hacic
+    Questions?: greg@interactiveties.com
+    
+    Notes:
+        - allows for pre-population of specific Opportunity field values when the "New" Opportunity button is clicked
+-->
+    <apex:sectionHeader subtitle="Auto-populate Certain Fields" title="Opportunity"></apex:sectionHeader><!-- the header for the page, which is not necessary -->
+    <apex:pageMessages ></apex:pageMessages><!-- error messaging section for page - allows for display of any issues to the human -->
+</apex:page>

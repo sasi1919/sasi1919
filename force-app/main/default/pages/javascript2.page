@@ -1,0 +1,26 @@
+<apex:page id="pg">
+<apex:form id="fm">
+    <apex:pageBlock id="pb">
+        <apex:pageBlockSection id="pbs1">
+            <apex:inputText id="input1"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection id="pbs2">
+            <apex:inputText id="input2"/>
+            <apex:outputText id="output"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:commandButton value="Click" onclick="test()" oncomplete="sasi()"/>
+</apex:form>
+<script>
+    function sasi()
+    {
+        var name1 = document.getElementById('{!$Component.pg.fm.pb.pbs1.input1}').value;
+        document.getElementById('{!$Component.pg.fm.pb.pbs2.input2}').value = name1;
+        document.getElementById('pg:fm:pb:pbs2:output').innerHTML=name1;
+    }
+    function test()
+    {
+    	alert('Testing');
+    }
+</script>
+</apex:page>

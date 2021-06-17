@@ -1,0 +1,21 @@
+<apex:page Controller="sfdc21703" >
+<apex:form >
+<apex:messages />
+<apex:pageblock title="Team Tasks">
+    <apex:inputText label="Priority" value="{!priorityid}"/>
+    <apex:commandButton value="GO!" action="{!task1}" reRender="plist"/>
+    <apex:pageblockTable value="{!plist}" var="a" id="plist">
+    <apex:column value="{!a.Name}"/>
+    <apex:column value="{!a.Team_Member__c}"/>
+    <apex:column value="{!a.Priority__c}"/>
+    <apex:column value="{!a.Date__c}"/>
+    </apex:pageblockTable>        
+<apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton" />
+    <!--<apex:pageblockButtons >
+        <apex:commandButton value="Edit" action="{!save}" id="editButton" />
+        <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+       <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />
+    </apex:pageblockButtons>-->
+</apex:pageblock>
+</apex:form> 
+</apex:page>
