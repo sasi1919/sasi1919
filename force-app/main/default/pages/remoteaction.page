@@ -1,0 +1,189 @@
+<apex:page controller="remoteaction" sidebar="false">
+<style>
+    body
+    {
+        font-family:Helvetica,Arial,sans-serif;
+        background:#333; 
+    }
+    #h2
+    {
+        color:#FFF;
+        font-size:2e,;
+        font-weight:100;
+        text-align:center;
+    }
+    #searchbar
+    {
+        width:100%;
+        float:left; 
+    }
+    #objectname
+    {
+        width:70%;
+        float:left;
+        border:none;
+        border-radius:20px;
+        padding:2% 5%;
+        font-size:1.5em;
+        color:#666;
+        outline:none;
+    }
+    #btnsearch
+    {
+        background:aqua;
+        border:none;
+        padding:2% 5%;
+        border-radius:20px;
+        margin:0% 1%;
+        width:18%;
+        font-size:1.5em;
+        cursor:pointer;
+        float:left;
+        color:#333;
+        outline:none;
+    }
+    #btnsearch:hover
+    {
+        background:#DFF;
+        color:#000;
+    }
+    #btnsearch:active
+    {
+        background:#DFF;
+        color:#FFF;
+    }
+    #records
+    {
+        border-collapse:collapse;
+        margin-top:50px;
+        width:100%;
+        background:#FFF;
+        float-point:left;
+    }
+    #records th,#records td
+    {
+        border:1px solid aqua;
+        padding:10px;
+    }
+    #records th
+    {
+        background-color:aqua;
+        color:#333;
+    }
+    #records tr:nth-child(odd)
+    {
+        color:#000000;
+        background-color:#DDFFFF;
+    }
+    #details p
+    {
+        color:#FFF;
+        font-size:2em;
+    }
+</style>
+    <!--
+<script type = "text\javascript">
+    function getrecorddetails()
+    {
+        var objectnme=document.getElementById("objectname").value;
+        alert("This is sasi" + objectnme);
+         Visualforce.remoting.Manager.invokeAction
+        (
+            '{!$RemoteAction.remoteaction.getrecords}',
+            objectname,
+            function(result,event)
+            {
+                if(event.status)
+                    {
+                        var l = result.length;
+                        if(l==0)
+                            {
+                                document.getElementById("details").innerHTML='<p> No Results </p>';
+                            }
+                        else
+                            {
+                                var markup='<table id="records">';
+                                markup +='<tr><th>Sl No</th><th>Model</th><th>Status</th></tr>';
+                                for(var i=0;i<1;i++)
+                                    {
+                                        var recordDetail = '<tr>' +
+                                            "<td>" + result[i].Name+"</td>" +
+                                            "<td>" + result[i].size__c+"</td>" +
+                                            "<td>" + result[i].team_short_name__c+"</td>" +
+                                            "<td>" + result[i].account__r.name+"</td>" +  
+                                            "</tr>";
+                                        markup += recordDetail;
+                                    }
+                                document.getElementById("details").innerHTML = markup;
+                            }
+                    }
+                    else if(event.type=='exception')
+                    {
+                        document.getElementById("details").innerHTML = event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                    }
+                    else
+                    {
+                        document.getElementById("details").innerHTML = event.message;
+                    }
+            },
+            {escape:true}
+        ); 
+    }
+</script>
+-->
+<script>
+    function getrecorddetails()
+    {
+        var objectnme=document.getElementById("objectname").value;
+         Visualforce.remoting.Manager.invokeAction
+        (
+            '{!$RemoteAction.remoteaction.getrecords}',
+            objectnme,
+            function(result,event)
+            {
+                if(event.status)
+                    {
+                        var l = result.length;
+                        if(l==0)
+                            {
+                                document.getElementById("details").innerHTML='<p> No Results </p>';
+                            }
+                        else
+                            {
+                                var markup='<table id="records">';
+                                markup +='<tr><th>Name</th><th>Size</th><th>Short name</th><th>Account name</th></tr>';
+                                for(var i=0;i<l;i++)
+                                    {
+                                        var recordDetail = '<tr>' +
+                                            "<td>" + result[i].Name+"</td>" +
+                                            "<td>" + result[i].size__c+"</td>" +
+                                            "<td>" + result[i].team_short_name__c+"</td>" +
+                                            "<td>" + result[i].account__r.name+"</td>" +  
+                                            "</tr>";
+                                        markup += recordDetail;
+                                    }
+                                document.getElementById("details").innerHTML = markup;
+                            }
+                    }
+                    else if(event.type=='exception')
+                    {
+                        document.getElementById("details").innerHTML = event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                    }
+                    else
+                    {
+                        document.getElementById("details").innerHTML = event.message;
+                    }
+            },
+            {escape:true}
+        );         
+    }
+</script>
+   <h2> Java script remoting demo </h2>
+    <br/>
+<div id="searchbar">
+       <input type="text" id="objectname" placeholder="Enter the team name" />
+       <input type="button" value="Find" id="btnsearch" onclick="getrecorddetails();" />
+</div>
+<div id="details">
+</div>
+</apex:page>

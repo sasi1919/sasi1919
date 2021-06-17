@@ -1,0 +1,34 @@
+<apex:page controller="position_custom" lightningStylesheets="true">
+
+<apex:form >
+<apex:pageBlock >
+    <apex:pageBlockSection columns="1" title="Positions">
+    <apex:outputPanel id="myPanel">
+        <apex:pageBlockTable value="{!newpos}" var="a"> 
+            <apex:pageMessages id="theMessages" />
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Location__c}"/>
+            <apex:column headerValue="Status">
+            <apex:outputField value="{!a.Status__c}">
+            <apex:inlineEditSupport event="ondblclick" />
+            </apex:outputField>
+            </apex:column>
+            <apex:column value="{!a.Type__c}"/>
+            <apex:column value="{!a.Hiring_Manager__c }"/>
+            <apex:facet name="footer">Showing Page # {!pageNumber} of {!totalPages}>
+            </apex:facet>
+        </apex:pageBlockTable>
+     </apex:outputpanel>
+    </apex:pageBlockSection>
+    <apex:pageblockButtons location="Top">
+     <apex:outputPanel id="myButtons">
+        <!--<apex:commandButton action="{!Save}" value="Save"/>-->  
+            <apex:commandButton value="Beginning" action="{!Beginning}" disabled="{!disabledPrevious}" reRender="myButtons,myPanel"/>
+            <apex:commandButton value="Previous" action="{!Previous}" disabled="{!disabledPrevious}" reRender="myButtons,myPanel"/>
+            <apex:commandButton value="Next" action="{!Next}" disabled="{!disabledNext}" reRender="myButtons,myPanel"/>
+            <apex:commandButton value="End" action="{!End}" disabled="{!disabledNext}" reRender="myButtons,myPanel"/>
+        </apex:outputPanel>
+    </apex:pageblockButtons>        
+</apex:pageBlock>
+</apex:form>
+</apex:page>

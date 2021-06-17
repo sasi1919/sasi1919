@@ -1,0 +1,14 @@
+<apex:page controller="search">
+    <apex:form >
+    <apex:pageBlock title="Search interface">
+    <apex:inputText value="{!a}"/>
+    <apex:commandButton action="{!search}" value="Search" reRender="member"/>
+    <apex:pageBlockTable value="{!tmembers}" var="b" id="member">
+    <apex:column value="{!b.Name}"/>
+    <apex:column value="{!b.Team_Name__c}"/>
+    <apex:column value="{!b.Team_lead__c}"/>
+    <apex:column value="{!b.Email_Id__c }"/>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

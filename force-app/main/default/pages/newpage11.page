@@ -1,0 +1,15 @@
+<apex:page standardController="Team_lead__c" >
+    <apex:form >
+    <apex:pageBlock title="Quick team lead">
+    <apex:pageBlockSection columns="1" >
+    <apex:inputField value="{!Team_lead__c.Name}" label="Lead name"/>
+    <apex:inputField value="{!Team_lead__c.Team__c}" label="Team name"/>
+    <apex:inputField value="{!Team_lead__c.Phone_Number__c}" label="# Number"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockButtons >
+    <apex:commandButton action="{!save}" value="Save"/>
+    </apex:pageBlockButtons>    
+    </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

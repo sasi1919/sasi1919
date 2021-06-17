@@ -1,0 +1,9 @@
+<apex:page StandardController="Account" >
+   <apex:pageBlock title="Hello {!$User.FirstName}">
+   <p>You are viewing the <b>{!account.name}</b> account.</p>
+   <style>
+    p.double {border-style: double;}
+   </style>
+   </apex:pageBlock>
+   <apex:detail subject="{!account.ownerId}" relatedList="false" title="true"/>
+</apex:page>

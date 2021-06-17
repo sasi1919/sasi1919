@@ -1,0 +1,20 @@
+<apex:page controller="vfpage7">
+<apex:form >
+<apex:pageBlock title="Accounts Based on type">
+<apex:selectList size="1" value="{!type}">
+            <apex:selectOption itemvalue="prospect" itemLabel="Prospect"/>
+            <apex:selectOption itemvalue="Customer - direct" itemLabel="Customer - direct"/>
+            <apex:selectOption itemvalue="Customer - Channel" itemLabel="Customer - Channel"/>
+            <apex:selectOption itemvalue="Customer" itemLabel="Customer"/>
+            <apex:actionsupport event="onchange" action="{!acclist}" rerender="accounttable"/>
+</apex:selectList>
+ <apex:pageblockSection id="accounttable">
+                    <apex:pageBlockTable value="{!acc}" var="a" title="Account list" >
+                    <apex:column value="{!a.name}" title="Name"/>
+                    <apex:column value="{!a.Phone}" title="Phone"/>
+                    <apex:column value="{!a.Type}" title="Type"/>
+                </apex:pageBlockTable>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

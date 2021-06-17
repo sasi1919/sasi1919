@@ -1,0 +1,6 @@
+<apex:page >
+<apex:form >
+<c:passingparameters InputString="Sasi">
+</c:passingparameters>
+</apex:form>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page standardController="Team_Member__c" recordSetVar="tmem" sidebar="false">
+<apex:form >
+    <apex:pageblock >
+        <apex:pageBlockSection >
+            <apex:pageblockTable value="{!tmem}" var="a">
+            <apex:column >
+               <apex:commandLink value="{!a.Name}" reRender="team"/>
+                  <apex:param name="teamm" value="{!a.ID}"/>
+            </apex:column>
+            <apex:column value="{!a.Team_Name__c}"/>
+            <apex:column value="{!a.Team_lead__c}"/>
+            <apex:column value="{!a.Email_Id__c}"/>
+            </apex:pageblockTable>
+            <apex:pageBlock >     
+                <apex:detail subject="{!$CurrentPage.parameters.teamm}" relatedList="false"/>    
+            </apex:pageBlock> 
+        </apex:pageBlockSection>  
+     </apex:pageBlock>
+</apex:form>
+</apex:page>

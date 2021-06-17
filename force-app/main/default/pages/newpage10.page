@@ -1,0 +1,16 @@
+<apex:page controller="members" >
+<apex:form >
+    <apex:pageBlock Title="Team members">
+    <apex:commandButton action="{!tmall}" value="All members" reRender="membertable"/>
+    <apex:commandButton action="{!Team1}" value="Team1 members" reRender="membertable"/>
+    <apex:commandButton action="{!Team2}" value="Team2 members" reRender="membertable"/>
+    <apex:commandButton action="{!Team3}" value="Team3 members" reRender="membertable"/>
+    <apex:pageBlockTable Value="{!tmembers}" var="a" id="membertable">
+    <apex:column value="{!a.Name}"/>
+    <apex:column value="{!a.Team_Name__c}"/>
+    <apex:column value="{!a.Team_lead__c}"/>
+    <apex:column value="{!a.Email_Id__c }"/>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page controller="ActionFunDemo" >
+    <apex:form >
+        <apex:actionFunction name="ChangedStatus" action="{!statusChanged}" rerender="display"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="If you will select ShowTextBox  then textbox will be shown" id="display" >
+                <apex:inputField value="{!acc.Active__c}" onchange="ChangedStatus()"/>
+                <apex:inputField value="{!acc.SIC}" rendered="{!showtxt}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

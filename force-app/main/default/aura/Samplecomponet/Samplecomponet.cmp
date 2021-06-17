@@ -1,0 +1,6 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	Hello World
+    <p class = 'sample1'>Hello World in paagraph </p>
+    <br/>
+    <lightning:formattedText value = 'This is a Sample component'/>
+</aura:component>

@@ -1,0 +1,3 @@
+<apex:page standardController="Team_Member__c" >
+<apex:relatedList list="Team_Member__r"/>
+</apex:page>

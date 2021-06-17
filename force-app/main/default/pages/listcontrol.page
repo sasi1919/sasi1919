@@ -1,0 +1,28 @@
+<apex:page Controller="listcontrol">
+<apex:form >
+
+<apex:pageblock title="Team Tasks">
+    <b> Priority  :  </b>
+    <apex:selectList multiselect="false" size="1" title="Priority" id="priority" onmouseover="show()">
+        <apex:selectOption itemValue="ALL" itemLabel="All"/>
+        <apex:selectOption itemValue="LOW" itemLabel="Low"/>
+        <apex:selectOption itemValue="MEDIUM" itemLabel="Medium"/>
+        <apex:selectOption itemValue="HIGH" itemLabel="High"/>
+        <!--<apex:actionSupport event="onchnage" action="{!task}"/> 
+        <apex:param name="priority" assignTo="{!priorityid}" value="{!priorityid}"/>  -->         
+    </apex:selectList> 
+    <apex:pageblockTable value="{!task}" var="a">
+    <apex:column value="{!a.Name}"/>
+    <apex:column value="{!a.Team_Member__c}"/>
+    <apex:column value="{!a.Priority__c}"/>
+    <apex:column value="{!a.Date__c}"/>
+    </apex:pageblockTable>        
+<apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton" />
+    <!--<apex:pageblockButtons >
+        <apex:commandButton value="Edit" action="{!save}" id="editButton" />
+        <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+       <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />
+    </apex:pageblockButtons>-->
+</apex:pageblock>
+</apex:form> 
+</apex:page>

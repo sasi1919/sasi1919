@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:form >
+        <apex:pageBlock title="Title">
+            <apex:pageBlockSection title="Subtitle" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputPanel >
+                        <div style="text-align: center">
+                            <apex:commandButton value="Value" />
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page standardController="Job_Application__c" recordSetVar="applications">
+    <apex:sectionHeader title="Mass Update the Status of Job Applications"/>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />
+             <apex:pageblockTable value="{!applications}" var="a">
+                <apex:column value="{!a.Name}" />
+                <apex:column value="{!a.Position__c}" />
+                <apex:column value="{!a.Candidate__c}" />
+                <apex:column value="{!a.Status__c}" /> 
+             </apex:pageblockTable>
+             <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton" />
+        <apex:pageblockbuttons >
+        <apex:commandButton action="{!Save}" value="Save"/>
+        </apex:pageblockbuttons>             
+        </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

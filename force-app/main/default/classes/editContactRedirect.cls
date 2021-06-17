@@ -1,0 +1,37 @@
+/*
+    Created by: Greg Hacic
+    Last Update: 27 August 2015 by Greg Hacic
+    Questions?: greg@interactiveties.com
+    
+    Notes:
+        - used by editContactRedirect.page
+*/
+public class editContactRedirect {
+    
+    private final Contact c; //Contact object
+    
+    //constructor
+    public editContactRedirect(ApexPages.StandardController stdController) {
+        this.c = (Contact)stdController.getRecord(); //instantiate the standard controller
+    }
+    
+    //method for handling when the Cancel button within the Visualforce page is clicked
+    public PageReference cancel() {
+        PageReference pageWhereWeEndUp = new ApexPages.StandardController(c).view(); //create a PageReference object for the current Contact detail page
+        pageWhereWeEndUp.setRedirect(true); //set the object to use a client side redirect
+        return pageWhereWeEndUp; //send the User on their way
+    }
+    
+    //method for handling when the Save button within the Visualforce page is clicked
+    public PageReference save() {
+        try { //attempt
+            update c; //update the record using the values from the Visualforce page
+            PageReference pageWhereWeEndUp = new PageReference('/home/home.jsp'); //create a PageReference object for the Home tab
+            return pageWhereWeEndUp.setRedirect(true); //set the object to use a client side redirect and send them on their way
+        } catch(DMLException e) { //must have been an issue with the update
+            ApexPages.addMessages(e); //display the error message to the User
+            return null; //return null so DMLException can be displayed to the User
+        }
+    }
+
+}

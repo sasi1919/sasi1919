@@ -1,0 +1,11 @@
+<apex:page standardController="Account">
+<script>
+    function changeCase(elId){
+        var x = document.getElementById(elId);
+        x.value = x.value.toUpperCase();
+    }
+</script>
+<apex:form >
+    <apex:inputField value="{!account.Name}" id="id1" onchange="changeCase('{!$Component.id1}');"/>
+</apex:form> 
+</apex:page>

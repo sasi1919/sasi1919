@@ -1,0 +1,14 @@
+<apex:page controller="MyController4">
+<apex:form >
+<apex:pageBlock >
+<apex:selectList id="Positions" value="{!selval}" size="1">
+<apex:selectoption itemLabel="N/A" itemValue="N/A"></apex:selectoption>
+<apex:selectoption itemLabel="Yes" itemValue="Yes"></apex:selectoption>
+<apex:selectoption itemLabel="No" itemValue="No"></apex:selectoption>
+<apex:actionSupport event="onchange" action="{!selectedvalue}"/>
+</apex:selectList>
+<apex:pageBlockSection title="Search Results" id="tbl" rendered="{!IF(selval= 'Yes', true, false)}">
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

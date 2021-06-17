@@ -1,0 +1,28 @@
+<apex:page controller="monthlyTime">
+<!--
+    Created by: Greg Hacic
+    Last Update: 2 February 2017 by Greg Hacic
+    Questions?: greg@interactiveties.com
+-->
+<apex:pageMessages ></apex:pageMessages>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Hours</th>
+        <th>Description</th>
+        <th>Purpose</th>
+        <th>Employee</th>
+    </tr>
+    <apex:repeat id="timecarddetails" value="{!timeEntries}" var="t">
+        <tr>
+            <td><c:localeformatteddate dateProvided="{!t.day}"></c:localeformatteddate></td>
+            <td colspan="4">{!t.allocationDetails}</td>
+        </tr>
+    </apex:repeat>
+    <tr>
+        <th colspan="2">Total Hours</th>
+        <th>{!totalHours}</th>
+        <th colspan="2"></th>
+    </tr>
+</table>
+</apex:page>

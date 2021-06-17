@@ -1,0 +1,10 @@
+<apex:page controller="RestWebService">
+  <apex:form >
+      <apex:outputLabel > City</apex:outputLabel>
+      <apex:inputText value="{!location}"/> 
+      <apex:commandButton value="Check Weather" action="{!getWeatherInformation}"/>
+      <br/>
+      <apex:outputLabel >Temparature</apex:outputLabel>
+      <apex:outputLabel value="{!temperature}"></apex:outputLabel>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,36 @@
+<apex:page controller="wrapperexample">
+<apex:form >
+    <apex:pageblock >
+    <apex:pageblockbuttons >
+    <apex:commandButton value="Process the records" action="{!processselected}" reRender="block2"/>
+    </apex:pageblockbuttons>
+        <apex:pageblockSection >
+                <apex:pageblockTable value="{!wrapperlist}" var="a">
+                    <apex:column headerValue="Action">
+                    <apex:inputCheckbox value="{!a.Isselected}"/>
+                    </apex:column> 
+                    <apex:column headerValue="Task Name">
+                    <apex:outputText value="{!a.tName}"/>
+                    </apex:column> 
+                    <apex:column headerValue="Member Email">
+                    <apex:outputText value="{!a.email}"/>
+                    </apex:column> 
+                    <apex:column headerValue="Workorder">
+                    <apex:outputText value="{!a.WName}"/>
+                    </apex:column>
+                </apex:pageblockTable>       
+                <apex:pageblockTable value="{!processselected}" var="sa" id="block2">
+                    <apex:column headerValue="Task Name">
+                    <apex:outputText value="{!sa.tName}"/>
+                    </apex:column> 
+                    <apex:column headerValue="Member Email">
+                    <apex:outputText value="{!sa.email}"/>
+                    </apex:column> 
+                    <apex:column headerValue="Workorder">
+                    <apex:outputText value="{!sa.WName}"/>
+                    </apex:column>                                                        
+                </apex:pageblockTable>
+        </apex:pageblockSection>
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

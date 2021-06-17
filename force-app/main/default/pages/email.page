@@ -1,0 +1,12 @@
+<apex:page controller="Email" tabStyle="Account">
+<apex:form ><apex:pageBlock >
+<apex:pageblockSection columns="1" title="Sending Email">
+<apex:inputText label="Subject" value="{!subject}"/>
+<apex:inputTextarea label="Body" value="{!Body}"/>
+</apex:pageblockSection>
+<apex:pageblockButtons location="Bottom">
+<apex:commandButton action="{!Sendemail}" value="Send"/>
+</apex:pageblockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

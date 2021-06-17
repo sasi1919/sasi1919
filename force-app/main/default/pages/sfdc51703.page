@@ -1,0 +1,17 @@
+<apex:page >
+<script>
+    function myJavascriptFunc()
+    {
+        alert('Entered Javascript') ;
+        CallApexMethod() ;
+    }
+</script>
+<apex:form >
+<apex:actionFunction name="CallApexMethod" action="{!myJavascriptFunc}" onComplete="alert('After apex method') ;"/>
+  <apex:pageBlock >
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Hit Me" onclick="CallApexMethod()"/>
+        </apex:pageBlockButtons>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

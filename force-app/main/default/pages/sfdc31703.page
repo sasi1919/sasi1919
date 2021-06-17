@@ -1,0 +1,15 @@
+<apex:page Controller="sfdc31703" >
+<apex:form >
+<apex:messages />
+<apex:actionfunction name="getlist" action="{!tasklist}" rerender="table"/>
+<apex:pageblock title="Team Tasks" id="table">    
+    <apex:inputfield value="{!team.Priority__c}" onchange="getlist()" />
+    <apex:pageblockTable value="{!plist}" var="a" id="plist">
+    <apex:column value="{!a.Name}"/>
+    <apex:column value="{!a.Team_Member__c}"/>
+    <apex:column value="{!a.Priority__c}"/>
+    <apex:column value="{!a.Date__c}"/>
+    </apex:pageblockTable>        
+</apex:pageblock>
+</apex:form> 
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page controller="practice2">
+<apex:pageBlockSection >
+</apex:pageBlockSection>
+</apex:page>

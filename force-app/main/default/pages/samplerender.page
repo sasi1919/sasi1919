@@ -1,0 +1,37 @@
+<apex:page standardController="Account">
+<apex:form >
+<apex:pageBlock title="Campaign Basic information">
+<apex:pageBlockButtons >
+<apex:commandButton value="Save" action="{!save}"/>
+<apex:commandButton value="Cancel" action="{!cancel}"/>
+<apex:commandButton value="Delete" action="{!delete}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection title="Information" columns="2">
+<apex:inputField value="{!Account.Name}" required="true"/><apex:inlineEditSupport />
+<apex:inputField value="{!Account.Phone}" required="true"/>
+                     <apex:PageBlockSectionItem >
+                         <apex:outputLabel value="Type"/>
+                         <apex:actionRegion >
+                          <apex:inputField value="{!Account.Type}" required="true">
+                          <apex:actionSupport event="onchange" reRender="ajaxrequest,ajaxrequest1" />
+                          </apex:inputField>
+                         </apex:actionRegion>
+                      </apex:PageBlockSectionItem>
+<apex:inputField value="{!Account.Match_Billing_Address__c}"/><apex:inlineEditSupport />
+<apex:inputField value="{!Account.NaicsCode}"/><apex:inlineEditSupport />
+</apex:pageBlockSection>
+<apex:outputPanel id="ajaxrequest">
+<apex:pageBlockSection title="Planning information" columns="2" rendered="{!Account.type== 'Prospect'||Account.type== 'Pending'}">
+<apex:inputField value="{!Account.SLAExpirationDate__c}" required="true"/><apex:inlineEditSupport />
+<apex:inputField value="{!Account.Number_of_contacts__c}" required="true"/><apex:inlineEditSupport />
+</apex:pageBlockSection>
+</apex:outputPanel>
+<apex:outputPanel id="ajaxrequest1">
+<apex:pageBlockSection title="Completetion information" columns="2" rendered="{!Account.type== 'Customer'}"  >
+<apex:inputField value="{!Account.YearStarted}" required="true"/><apex:inlineEditSupport />
+<apex:inputField value="{!Account.YearStarted}" required="true"/><apex:inlineEditSupport />
+</apex:pageBlockSection>
+</apex:outputPanel>
+</apex:pageBlock>
+</apex:form>
+</apex:Page>

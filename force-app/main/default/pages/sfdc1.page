@@ -1,0 +1,16 @@
+<apex:page controller="sfdc1" >
+<apex:form >
+<apex:pageblock id="conv">
+<apex:pageblockSection Title="Input">
+<apex:inputText label="Input" value="{!Input}"/>
+</apex:pageblockSection>
+<apex:pageblockButtons >
+<apex:commandButton value="!GO" action="{!convert}" reRender="conv"/>
+</apex:pageblockButtons>
+<apex:pageblockSection Title="Ouput">
+<apex:outputText label="output" value="{!output}"/>
+</apex:pageblockSection>
+
+</apex:pageblock>
+</apex:form>
+</apex:page>
